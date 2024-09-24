@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnvpkxxqjnhry"]
+
+[ext_resource type="Texture2D" uid="uid://bmdwvdqvfgiw" path="res://Soccer_Field_PNG_Clip_Art_Image.png" id="1_61vli"]
+[ext_resource type="Texture2D" uid="uid://x7t1e4p53mmp" path="res://Soccer_Ball_PNG_Clipart-855.png" id="2_or344"]
+[ext_resource type="PackedScene" uid="uid://8p4fia6e6hgk" path="res://redplayer.tscn" id="3_pkxlh"]
+[ext_resource type="PackedScene" uid="uid://byfeqhee2ku6k" path="res://blueplayer.tscn" id="4_jamxm"]
+
+[node name="SoccerFieldPngClipArtImage" type="Sprite2D"]
+position = Vector2(591, 334)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_61vli")
+
+[node name="SoccerBallPngClipart-855" type="Sprite2D" parent="."]
+position = Vector2(410, 930)
+scale = Vector2(0.921035, 0.87)
+texture = ExtResource("2_or344")
+
+[node name="redplayer" parent="." instance=ExtResource("3_pkxlh")]
+position = Vector2(2060, -2020)
+
+[node name="redplayer2" parent="." instance=ExtResource("3_pkxlh")]
+position = Vector2(2050, 350)
+
+[node name="redplayer3" parent="." instance=ExtResource("3_pkxlh")]
+position = Vector2(770, -920)
+
+[node name="blueplayer" parent="." instance=ExtResource("4_jamxm")]
+position = Vector2(-780, -1190)
+
+[node name="blueplayer2" parent="." instance=ExtResource("4_jamxm")]
+position = Vector2(-1880, -230)
+
+[node name="blueplayer3" parent="." instance=ExtResource("4_jamxm")]
+position = Vector2(-1850, -2420)

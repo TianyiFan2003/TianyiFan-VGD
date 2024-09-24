@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://byfeqhee2ku6k"]
+
+[ext_resource type="PackedScene" uid="uid://8p4fia6e6hgk" path="res://redplayer.tscn" id="1_fu6wh"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(762, -937)
+
+[node name="Blueplayer" parent="." instance=ExtResource("1_fu6wh")]
+position = Vector2(-580, 278)
+
+[node name="redplayerhead" parent="Blueplayer" index="0"]
+offset_top = 82.0
+offset_bottom = 682.0
+metadata/_edit_use_anchors_ = true
+
+[node name="redplayerbody" parent="Blueplayer" index="1"]
+color = Color(0.06, 0.138333, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="redplayerleftarm" parent="Blueplayer/redplayerbody" index="0"]
+color = Color(0.0348, 0.0620599, 0.58, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="redplayerrightarm" parent="Blueplayer/redplayerbody" index="1"]
+color = Color(0.0352941, 0.0627451, 0.580392, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="redplayerleg" parent="Blueplayer/redplayerbody" index="2"]
+metadata/_edit_use_anchors_ = true
+
+[node name="redplayerleg2" parent="Blueplayer/redplayerbody" index="3"]
+metadata/_edit_use_anchors_ = true
+
+[editable path="Blueplayer"]

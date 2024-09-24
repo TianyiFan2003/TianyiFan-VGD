@@ -11,7 +11,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_61vli")
 
 [node name="SoccerBallPngClipart-855" type="Sprite2D" parent="."]
-position = Vector2(410, 930)
+position = Vector2(170, -540)
 scale = Vector2(0.921035, 0.87)
 texture = ExtResource("2_or344")
 

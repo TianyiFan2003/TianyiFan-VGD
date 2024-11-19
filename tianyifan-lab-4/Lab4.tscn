@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://cudk8ooomu0qt"]
+
+[ext_resource type="Script" path="res://character_body_3d.gd" id="1_5ykpo"]
+
+[sub_resource type="Environment" id="Environment_n08us"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sxq20"]
+radius = 0.492458
+
+[sub_resource type="SphereMesh" id="SphereMesh_j7dyy"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2bfdy"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ewrod"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(-0.3031, -0.027983, 0.952548, 0.759677, -0.610581, 0.223792, 0.575345, 0.79146, 0.206325, 0.000147104, -0.00680369, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.745208, 0.0978747, 0.65961, -0.330429, 0.913388, 0.237778, -0.579208, -0.395148, 0.713004, 8.63892, 3.70467, 9.26022)
+light_energy = 2.131
+light_indirect_energy = 1.323
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n08us")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.391583, -0.753868, -0.527572, 0.681841, 0.622736, -0.383773, 0.61786, -0.209441, 0.757876, 0, 0, 0)
+use_collision = true
+size = Vector3(1000, 1, 1000)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.958379, -0.257609, -0.123067, 0.0786656, 0.652657, -0.753557, 0.274444, 0.712513, 0.645759, 1.83209, 1.77776, 0.635197)
+script = ExtResource("1_5ykpo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(-0.0959159, 0.756815, 0.646552, 0.139473, -0.632921, 0.761549, 0.985568, 0.163221, -0.0448483, 1.12906, 0.852092, 1.94581)
+shape = SubResource("SphereShape3D_sxq20")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(-0.143311, 0.696098, 0.703497, 0.136765, -0.690084, 0.710688, 0.980181, 0.198063, 0.00369433, 1.04294, 0.768731, 1.9522)
+mesh = SubResource("SphereMesh_j7dyy")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(0.231237, 0.3737, 0.898264, 0.869728, -0.493178, -0.0187161, 0.436009, 0.785572, -0.439059, 5.7904, 0.40715, -0.139443)
+fov = 47.8125
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.5601, 0.790196, -0.248749, 0.517536, -0.568225, -0.639747, -0.646871, 0.229586, -0.727219, -0.698325, -1.6649, 3.39514)
+shape = SubResource("CylinderShape3D_2bfdy")
+disabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+transform = Transform3D(0.918526, 0.0659314, 0.389827, -0.00282511, -0.984879, 0.173229, 0.395352, -0.160216, -0.904449, 0.0718366, 0.152154, 0.0307655)
+mesh = SubResource("CapsuleMesh_ewrod")
+skeleton = NodePath("../../..")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Area3D"]
+transform = Transform3D(-0.0231093, -0.739304, 0.672975, -0.173599, 0.665896, 0.725565, -0.984545, -0.10006, -0.143731, -0.43598, -1.89499, 3.41099)
+use_collision = true
+radius = 0.4362
+height = 1.21229
